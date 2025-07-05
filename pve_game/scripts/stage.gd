@@ -9,6 +9,7 @@ extends Node2D
 
 @onready var player_spawn: Node2D = $"PlayerSpawn"
 @onready var enemy_container: Node2D = $"EnemyContainer"
+@onready var tile_map: TileMap = $"TileMap"
 
 var current_wave: int = 0
 var alive_enemies: int = 0
@@ -22,6 +23,8 @@ func _ready() -> void:
         player_instance.connect("health_changed", ui_instance, "update_hp")
     if player_instance.has_signal("mp_changed"):
         player_instance.connect("mp_changed", ui_instance, "update_mp")
+
+    generate_basic_ground()
     spawn_wave()
 
 func spawn_player() -> Node2D:
@@ -47,3 +50,11 @@ func _on_enemy_died(enemy):
     alive_enemies -= 1
     if alive_enemies <= 0:
         spawn_wave()
+
+func generate_basic_ground() -> void:
+    if tile_map.tile_set == null:
+        return
+    var ground_tile_id := 0 # first atlas tile
+    var ground_y := 10
+    for x in range(0, 50):
+        tile_map.set_cell(0, Vector2i(x, ground_y), ground_tile_id, Vector2i(0, 0))

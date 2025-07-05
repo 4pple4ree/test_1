@@ -1,0 +1,9 @@
+[gd_resource type="TileSet" load_steps=2 format=3]
+
+[ext_resource path="res://assets/tiles/tileset.png" type="Texture2D" id=1]
+
+[resource]
+0/name = "Atlas"
+0/tile_mode = 1
+0/texture = ExtResource(1)
+0/atlas_tile_size = Vector2i(64, 64)

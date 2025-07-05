@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
 
@@ -11,6 +11,8 @@ shape = CircleShape2D {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="."]
 

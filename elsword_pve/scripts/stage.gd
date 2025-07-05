@@ -20,6 +20,8 @@ func _ready() -> void:
     add_child(ui_instance)
     if player_instance.has_signal("health_changed"):
         player_instance.connect("health_changed", ui_instance, "update_hp")
+    if player_instance.has_signal("mp_changed"):
+        player_instance.connect("mp_changed", ui_instance, "update_mp")
     spawn_wave()
 
 func spawn_player() -> Node2D:
